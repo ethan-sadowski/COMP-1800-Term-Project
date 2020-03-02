@@ -8,6 +8,6 @@ Team members: Vivian, Arjun, Linda, Ethan
 
 Trello board: https://trello.com/b/dWrCo9iu/comp-1800-term-project
 
-Long term goal: Create a functioning website that meets our design expectations.
+Long term goal: Design an application that creates and stores reminders for upcoming events
 
 **Short term goal: Create a website prototype with a functioning reminder list and a base level of CSS design**
