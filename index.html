@@ -3,9 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daytine</title>
+    <title>Daytine - Maintain your Daily Routine</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--Used for symbol usage-->
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet'> <!--Used for font used on web page-->
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
 </head>
+
 <body>
+
+<div class="mainArea">
+    <a href="index.html"><img id="logo" src="Images/daytine.png"></a>
+    <div class="logoArea">
+        <form id="myForm" action="">
+            <input id="myInput" type="text" placeholder="Remind me...">
+            <i id="enter" class="fa fa-bell"></i>
+        </form>
+</div>
+
+<div class="container">
+    <table id="calendar">
+        <th>
+            <tr id="header">
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </th>
+        <tr id="numericalDay">
+            <td id="sunNumber">1</td>
+            <td id="monNumber">2</td>
+            <td id="tueNumber">3</td>
+            <td id="wedNumber">4</td>
+            <td id="thuNumber">5</td>
+            <td id="friNumber">6</td>
+            <td id="satNumber">7</td>
+        </tr>
+    <tbody id="calendarBody"></tbody>
+    </table>
+</div>
+
+<div id="title"></div>
+    <h2>Reminders</h2>
+</div>
+
+<ul id="list">
+    <li>This is a test list.</li>
+    <li>This is a test list.</li>
+    <li>This is a test list.</li>
+    </ul>
+</ul>
+
+
+
+
+<script src="app.js"></script>
     
 </body>
 </html>
