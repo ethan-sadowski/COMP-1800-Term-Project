@@ -1,0 +1,138 @@
+body  {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(45deg, rgba(53,85,65,1) 0%, rgba(54,94,108,0.7959558823529411) 46%, rgba(186,235,198,0.13209033613445376) 100%);
+}
+
+form {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+}
+
+
+#logo {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+}
+
+
+input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 5 0px;
+    font-family: Playfair Display;
+}
+
+.fa {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #7ca89b;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+form:hover {
+    width: 200px;
+    cursor: pointer;
+}
+
+form:hover input {
+    display: block;
+}
+
+form:hover .fa {
+    background: #7ca89b;
+    color: white;
+}
+
+#calendar {
+    border-spacing: 50px 0px;
+    border: none;
+    border-collapse: separate;
+    border-style: none;
+}
+
+.container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: Playfair Display;
+    font-size: 25px;
+    color: white;
+    text-shadow: 3px 3px darkcyan;
+}
+
+h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: Playfair Display;
+    font-size: 25px;
+    color: white;
+    text-shadow: 3px 3px darkcyan;
+}
+
+ul {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: Playfair Display;
+    font-size: 23px;
+    color: white;
+    text-shadow: 3px 3px darkcyan;
+    list-style-type: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ul li:hover {
+    background: #70bca2;
+  }
+
+td {
+    color: darkgreen;
+    text-shadow: 3px 3px lightblue;
+    background-color: white;
+    text-align: right;
+    border-collapse: collapse;
+}
+
+
+
