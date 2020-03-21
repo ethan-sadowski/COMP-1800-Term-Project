@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daytine - Maintain your Daily Routine</title>
+    <title>Daytime - Maintain your Daily Routine</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--Used for symbol usage-->
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet'> <!--Used for font used on web page-->
@@ -14,11 +14,14 @@
 <body>
 
 <div class="mainArea">
-    <a href="index.html"><img id="logo" src="Images/daytine.png"></a>
-    <div class="logoArea">
-        <form id="myForm" action="">
-            <input id="myInput" type="text" placeholder="Remind me...">
-            <i id="enter" class="fa fa-bell"></i>
+        <form id="theForm">
+            <div id="div1">
+            <h2>Task Name:</h2>
+            <input id="searchTerm1" type="text">
+            <h2>Date:</h2>
+            <input id="searchTerm2" type="text">
+            <input id="submitButton" type="submit" value="Create Task">
+        </div>
         </form>
 </div>
 
@@ -49,7 +52,7 @@
 </div>
 
 <div id="title"></div>
-    <h2>Reminders</h2>
+    <h1>Reminders:</h1>
 </div>
 
 <ul id="list">
