@@ -25,6 +25,7 @@ let remindersController = {
     let reminder = {
       id: Database.cindy.reminders.length+1,
       title: req.body.title,
+      date: req.body.date,
       description: req.body.description,
       completed: false
     }
