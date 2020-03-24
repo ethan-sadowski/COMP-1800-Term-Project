@@ -4,12 +4,13 @@
     <ul class="list-group">
       <li class="list-group-item">
         <h3><strong><%= reminderItem.title %>: </strong></h3>
+        <h5><strong><%= reminderItem.date %>: </strong></h5>
         <h4><%= reminderItem.description %></h4>
         <h4>Completed:
           <% if (reminderItem.completed == true) { %>
-            <span class="label label-success">True</span>
+            <span class="label label-success">Yes</span>
           <% } else if (reminderItem.completed == false) { %>
-            <span class="label label-danger">False</span>
+            <span class="label label-danger">No</span>
           <% } %>
         </h4>
 
