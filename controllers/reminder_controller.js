@@ -27,6 +27,7 @@ let remindersController = {
       title: req.body.title,
       date: req.body.date,
       description: req.body.description,
+      rain: false,
       completed: false
     }
     Database.cindy.reminders.push(reminder);
