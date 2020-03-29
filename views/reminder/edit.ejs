@@ -6,8 +6,21 @@
       <input type="text" name="title" class="form-control" id="titleInput" value="<%= reminderItem.title %>">
     </div>
     <div class="form-group">
+      <label for="date">Reminder Date:</label>
+      <br>
+      <input type="date" id="dateInput" rows="1" placeholder="Date" name="date"></input>
+    </div>
+    <div class="form-group">
       <label for="description">Description</label>
       <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Description" name="description"><%= reminderItem.description %></textarea>
+      <div class="form-group">
+        <label for="subtasks">Subtasks:</label>
+        <br>
+        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask1"></input>
+        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask2"></input>
+        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask3"></input>
+        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask4"></input>
+      </div>
     </div>
 
     <div class="form-group">
