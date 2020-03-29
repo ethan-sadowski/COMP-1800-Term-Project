@@ -3,14 +3,28 @@
 
     <ul class="list-group">
       <li class="list-group-item">
-        <h3><strong><%= reminderItem.title %>: </strong></h3>
-        <h5><strong><%= reminderItem.date %>: </strong></h5>
+        <h3><strong>Task Name:</strong></h3>
+        <h3><strong><%= reminderItem.title %> </strong></h3>
+        <br>
+        <h5><strong>Reminder Date:</strong></h5>
+        <h5><strong><%= reminderItem.date %> </strong></h5>
+        <br>
         <h4><%= reminderItem.description %></h4>
+        <br>
+        <h6><strong>Subtasks:</strong></h6>
+        <ul class="list-group">
+        <% reminderItem.subtasks.forEach(function(item) { %>
+          <% if (item != "") { %>
+          <li><%= item %> %></li>
+          <% } %>
+      <%}); %>
+          
+      </ul>
         <h4>Completed:
           <% if (reminderItem.completed == true) { %>
-            <span class="label label-success">True</span>
+            <span class="label label-success">Yes</span>
           <% } else if (reminderItem.completed == false) { %>
-            <span class="label label-danger">False</span>
+            <span class="label label-danger">No</span>
           <% } %>
         </h4>
 
