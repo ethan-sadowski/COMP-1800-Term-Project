@@ -50,6 +50,10 @@ let remindersController = {
       if(reminder.id == reminderToFind) {
         reminder.title = req.body.title,
         reminder.description = req.body.description,
+        reminder.date = req.body.date,
+        reminder.description = req.body.description,
+        reminder.rain = false,
+        reminder.subtasks = [req.body.subtask1, req.body.subtask2, req.body.subtask3, req.body.subtask4],
         // Why do you think I had to do req.body.completed == "true" below?
         reminder.completed = req.body.completed == "true" 
       }
