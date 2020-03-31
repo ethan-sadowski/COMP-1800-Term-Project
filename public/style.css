@@ -5,8 +5,8 @@
 body {
     padding: 0;
     margin: 0;
-    height: 100vh;
     width: 100%;
+    z-index: 0;
     /* background: linear-gradient(45deg, rgba(53,85,65,1) 0%, rgba(54,94,108,0.7959558823529411) 46%, rgba(186,235,198,0.13209033613445376) 100%); */
 
     background: linear-gradient(30deg, rgba(53, 85, 65, 0.322) 0%, rgba(54, 108, 96, 0.796) 46%, rgba(30, 122, 118, 0.925) 100%);
