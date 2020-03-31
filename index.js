@@ -33,5 +33,5 @@ app.post("/reminder/update/:id", reminderController.update) // suggestion for cl
 app.post("/reminder/delete/:id", reminderController.delete)
 
 app.listen(3000, function(){
-  console.log("Server running. Visit: localhost:3000/reminder in your browser 🚀");
+  console.log("Server running. Visit: localhost:3000/ in your browser 🚀");
 })
