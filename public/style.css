@@ -30,3 +30,14 @@ body {
     text-shadow: 3px 3px rgb(21, 75, 75);
       text-align: center;
 }
+
+.carousel-item {
+  height: 300px;
+}
+
+.item-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
+}
