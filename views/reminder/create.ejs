@@ -25,6 +25,13 @@
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
   <form action="/weather" method="POST">
-  <button type="submitWeather" class="btn btn-default">Bring an Umbrella?</button>
+    <% if(data.daily.icon == 'rain'){ %>
+      <script>
+        document.getElementById('umbrella').src = '../reminder/umbrella-rain.png'
+      </script>>
+    <% } else{ %>
+    <% } %>
+  <input type="button" id='umbrella'class="btn btn-default" src='../reminder/umbrella.png' alt='need umbrella?'> </button>
+  <!-- <button type="submitWeather" class="btn btn-default">Bring an Umbrella?</button> -->
 </form>
 </div>
