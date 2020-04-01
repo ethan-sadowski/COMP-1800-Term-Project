@@ -12,11 +12,7 @@ Finally, the product will incorporate two API's, the DarkSky Weather API and the
 | Member | Contact |
 | ----------- | ----------- |
 | Arjun Dhaliwal | adhaliwal111@gmail.com |
-<<<<<<< HEAD
 | Ethan Sadowski | esadowski1@my.bcit.ca |
-=======
-| Ethan Sadowski | EMAIL-HERE |
->>>>>>> b1f332eb2e00528ebb4d02fac94c3f8434c037a9
 | Vivian Cao | vivian.w.cao@gmail.com |
 
 ## Design:
