@@ -4,14 +4,30 @@
 <ul class="list-group">
   <% reminders.forEach(function (reminderItem) { %>
     <li class="list-group-item">
-      <strong><%= reminderItem.title %>: </strong>
+      <h5><strong><%= reminderItem.title %>: </strong></h5>
       <%= reminderItem.description %>
-      || Completed:
+      <br>
+      <strong>Date:</strong>
+      <%= reminderItem.date %>
+      <br>
+      <br>
+      <h6><strong>Subtasks:</strong></h6>
+        <ul class="list-group">
+        <% reminderItem.subtasks.forEach(function(item) { %>
+          <% if (item != "") { %>
+          <li><%= item %> %></li>
+          <% } %>
+          <%}); %>
+              
+        </ul>
+      <br>
+      <strong>Completed:</strong>
       <% if (reminderItem.completed == true) { %>
         <span class="label label-success">Yes ✅</span>
       <% } else if (reminderItem.completed == false) { %>
         <span class="label label-danger">No ❌</span>
       <% } %>
+      <br>
       <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>
     </li>
   <% }) %>
