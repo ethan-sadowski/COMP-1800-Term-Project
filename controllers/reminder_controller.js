@@ -55,13 +55,15 @@ function getNewToken(oAuth2Client, callback) {
  });
 }
 
+const fetch = require("node-fetch");
+
 let remindersController = {
   list: (req, res) => {
     res.render('reminder/index', { reminders: Database.cindy.reminders })
   },
 
   new: (req, res) => {
-    res.render('reminder/create')
+    res.render('reminder/create', {data:{}})
   },
 
   listOne: (req, res) => {
@@ -213,7 +215,19 @@ let remindersController = {
       });
     });
     res.redirect('/reminder');
-  }
-}
+  },
 
+  getWeather: async (req, res) => {
+    // console.log(req.query);
+    // console.log('______________________');
+    const fetchResponse = await fetch("https://api.darksky.net/forecast/c1c3b383cf5bce1b78f17dd8f965ae86/49.2827,-123.1207," + req.query.date);
+    const data = await fetchResponse.json();
+    console.log(data);
+    // res.render("reminder/create", {data});
+    if (data.currently.icon == 'rain')
+    {res.json({raining: true});}
+    else 
+    {res.json({raining: false});}   
+}
+}
 module.exports = remindersController

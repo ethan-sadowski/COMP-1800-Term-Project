@@ -1,10 +1,14 @@
 <div class="container">
+  <br>
   <form action="/reminder" method="POST">
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" id="titleInput" placeholder="Title" name="title">
       <div class="form-group">
         <label for="date">Reminder Date:</label>
+
+    <img id='umbrella' class="btn btn-default" src='https://i.imgur.com/26ijETQ.png' alt='need umbrella?' width='70'/>  
+    
         <br>
         <input type="date" id="dateInput" rows="1" placeholder="Date" name="date"></input>
       </div>
@@ -23,7 +27,39 @@
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
+  
   <form action="/weather" method="POST">
-  <button type="submitWeather" class="btn btn-default">Bring an Umbrella?</button>
-</form>
+  
+  </form>  
+  
+  <!-- <% if(data && data.daily && data.daily.icon == 'rain'){ %>
+    <script>
+      document.getElementById('umbrella').src = 'https://i.imgur.com/3SdDbN3.png'
+    </script>
+  <% } else{ %>
+    <script>
+      document.getElementById('umbrella').src = 'https://i.imgur.com/26ijETQ.png'
+    </script>
+  <% } %> -->
+  <script>
+    function clickUmbrella() {
+      let date = document.getElementById('dateInput').value;
+      date = new Date(date).getTime() / 1000;
+      console.log(date);
+      axios.get('/weather?date=' + date)
+        .then(function (response) {
+          console.log(response);    
+          if (response.data.raining){
+            document.getElementById('umbrella').src='https://i.imgur.com/3SdDbN3.png'
+          }
+          else{
+            document.getElementById('umbrella').src='https://i.imgur.com/26ijETQ.png'
+          }
+        })
+
+    }
+    document.getElementById('umbrella').onclick = clickUmbrella;
+  </script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 </div>

@@ -24,22 +24,24 @@ app.get("/", function(req, res){
   res.render("reminder/promopage.ejs")
 })
 
-app.get("/reminder", reminderController.list)
+app.get("/reminder", reminderController.list);
 
-app.get("/reminder/new", reminderController.new)
+app.get("/reminder/new", reminderController.new);
 
-app.get("/reminder/:id", reminderController.listOne)
+app.get("/reminder/:id", reminderController.listOne);
 
-app.get("/reminder/:id/edit", reminderController.edit)
+app.get("/reminder/:id/edit", reminderController.edit);
 
-app.post("/reminder/", reminderController.create)
+app.post("/reminder/", reminderController.create);
 
-app.post("/reminder/update/:id", reminderController.update) // suggestion for class: look into put and post
+app.post("/reminder/update/:id", reminderController.update); // suggestion for class: look into put and post
 
-app.post("/reminder/delete/:id", reminderController.delete)
+app.post("/reminder/delete/:id", reminderController.delete);
+
+app.get('/weather', reminderController.getWeather);
 
 app.listen(3000, function(){
-  console.log("Server running. Visit: localhost:3000/reminder in your browser 🚀");
+  console.log("Server running. Visit: localhost:3000/ in your browser 🚀");
 })
 
 

@@ -1,16 +1,26 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+  <a class="navbar-brand" href="/">Remo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-light navbar-toggler-icon">
 
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Reminder List</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/reminder">Your Reminders</a></li>
-        <li><a href="/reminder/new">Create</a></li>
-      </ul>
-    </div>
+    </span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/reminder">Reminders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/reminder/new">Create</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">IF WE NEED ANOTHER TAG</a>
+      </li>
+    </ul>
   </div>
 </nav>
+</header>
