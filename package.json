@@ -19,6 +19,8 @@
     "ejs": "^2.5.5",
     "express": "^4.14.0",
     "express-ejs-layouts": "^2.2.0",
+    "google-auth-library": "^1.6.1",
+    "googleapis": "^39.2.0",
     "method-override": "^2.3.7",
     "mongoose": "^4.7.7",
     "node-fetch": "^2.6.0",
