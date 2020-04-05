@@ -229,6 +229,43 @@ let remindersController = {
     {res.json({raining: true});}
     else 
     {res.json({raining: false});}   
-}
+  },
+
+  refreshReminders: (req, res) => {
+    Database.cindy.reminders = [];
+    fs.readFile('credentials.json', (err, content) => {
+      if (err) return console.log('Error loading client secret file:', err);
+      authorize(JSON.parse(content), function(auth){
+        const sheets = google.sheets({version: 'v4', auth});
+        sheets.spreadsheets.values.get({
+          spreadsheetId: '1l8XiLrVRqbjaBzmKJBmi4aMxKqlJdV6b_XT_mTH0vAQ',
+          range: 'Sheet1',
+        }, (err, res) => {
+          if (err) return console.log('The API returned an error: ' + err);
+            let data = res.data.values;
+          if (data == undefined){
+            return console.log('No data to return');
+          }
+          if (data.length) {
+            for (i = 0; i < data.length; i++){
+              if (data[i][0] != undefined) {
+                newReminder = {
+                  id: data[i][0],
+                  title: data[i][1],
+                  date: data[i][2],
+                  description: data[i][3],
+                  rain: bool = data[i][4] == "true",
+                  subtasks: [data[i][5], data[0][6], data[0][7], data[0][8]],
+                  completed: bool = data[i][9] == "true",
+                }
+          Database.cindy.reminders.push(newReminder);
+              }
+            }
+          }
+        });
+      });
+    });
+    res.redirect('/');
+  }
 }
 module.exports = remindersController
