@@ -8,7 +8,7 @@ let remindersController = {
   },
 
   new: (req, res) => {
-    res.render('reminder/create')
+    res.render('reminder/create', {data:{}})
   },
 
   listOne: (req, res) => {
@@ -73,12 +73,16 @@ let remindersController = {
   },
 
   getWeather: async (req, res) => {
-
-    const fetchResponse = await fetch("https://api.darksky.net/forecast/c1c3b383cf5bce1b78f17dd8f965ae86/37.8267,-122.4233/<date>");
+    // console.log(req.query);
+    // console.log('______________________');
+    const fetchResponse = await fetch("https://api.darksky.net/forecast/c1c3b383cf5bce1b78f17dd8f965ae86/49.2827,-123.1207," + req.query.date);
     const data = await fetchResponse.json();
     console.log(data);
-    res.render("reminder/create", {data});
-    res.render('reminder/weather', {data})
+    // res.render("reminder/create", {data});
+    if (data.currently.icon == 'rain')
+    {res.json({raining: true});}
+    else 
+    {res.json({raining: false});}   
 }
 }
 module.exports = remindersController
