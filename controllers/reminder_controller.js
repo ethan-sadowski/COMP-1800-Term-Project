@@ -84,9 +84,10 @@ let remindersController = {
     //array of storage + 1.
     let nextId;
     if (Database.cindy.reminders.length != 0){
-      nextId = Database.cindy.reminders[Database.cindy.reminders.length - 1].id + 1
+      nextId = parseInt(Database.cindy.reminders[Database.cindy.reminders.length - 1].id) + 1
+      console.log(typeof(nextId))
     } else {
-      nextId = 1
+      nextId = 1;
     }
     let reminder = {
       id: nextId,
