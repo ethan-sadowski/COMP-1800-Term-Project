@@ -1,4 +1,4 @@
-# COMP 1800 - Reminder App Documentation
+# COMP 1800 - Remo (Reminder App) Documentation
 
 ## Project Purpose:
 The mission of this project is to develop and ship/host a working reminder app. 
