@@ -41,12 +41,38 @@
       document.getElementById('umbrella').src = 'https://i.imgur.com/26ijETQ.png'
     </script>
   <% } %> -->
-  <script>
-    function clickUmbrella() {
+
+  <script>    
+  //get x, y axis from location object
+
+  //get user's geo location, pass object to showLocation()
+    function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(locationDate);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+
+    function locationDate(position) {        
+      //get location data
+      let latitude = position.coords.latitude;
+      let longtitude = position.coords.longitude;
+      console.log("Latitude: " + latitude);
+      console.log("Longtitude: " + longtitude);
+        
+      //get time from userInput_date
       let date = document.getElementById('dateInput').value;
+
+      // if (date === NaN){alert('Please select a date first')}
+      
+      //convert to UNIX time
       date = new Date(date).getTime() / 1000;
+      //check on the front end and see if date in UNIX format
       console.log(date);
-      axios.get('/weather?date=' + date)
+      //use axios to prevent the page to be redirected
+      //get the response from /weather when API form is submited/umbrella is being clicked
+      axios.get('/weather?date=' + date + '&latitude=' + latitude + '&longtitude=' + longtitude)
         .then(function (response) {
           console.log(response);    
           if (response.data.raining){
@@ -56,9 +82,14 @@
             document.getElementById('umbrella').src='https://i.imgur.com/26ijETQ.png'
           }
         })
+        // document.getElementById('umbrella').disabled = true; 
 
     }
-    document.getElementById('umbrella').onclick = clickUmbrella;
+
+    function clickUmbrella(){
+      getLocation();
+    }
+    document.getElementById('umbrella').onclick = clickUmbrella; 
   </script>
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
