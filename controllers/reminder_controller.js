@@ -75,7 +75,7 @@ let remindersController = {
   getWeather: async (req, res) => {
     // console.log(req.query);
     // console.log('______________________');
-    const fetchResponse = await fetch("https://api.darksky.net/forecast/c1c3b383cf5bce1b78f17dd8f965ae86/49.2827,-123.1207," + req.query.date);
+    const fetchResponse = await fetch("https://api.darksky.net/forecast/c1c3b383cf5bce1b78f17dd8f965ae86/" + req.query.latitude + "," + req.query.longtitude + "," + req.query.date);
     const data = await fetchResponse.json();
     console.log(data);
     // res.render("reminder/create", {data});

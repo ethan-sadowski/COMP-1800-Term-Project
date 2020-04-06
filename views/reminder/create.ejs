@@ -57,9 +57,9 @@
     function locationDate(position) {        
       //get location data
       let latitude = position.coords.latitude;
-      let longitude = position.coords.longitude;
+      let longtitude = position.coords.longitude;
       console.log("Latitude: " + latitude);
-      console.log("Longitude: " + longitude);
+      console.log("Longtitude: " + longtitude);
         
       //get time from userInput_date
       let date = document.getElementById('dateInput').value;
@@ -72,7 +72,7 @@
       console.log(date);
       //use axios to prevent the page to be redirected
       //get the response from /weather when API form is submited/umbrella is being clicked
-      axios.get('/weather?date=' + date)
+      axios.get('/weather?date=' + date + '&latitude=' + latitude + '&longtitude=' + longtitude)
         .then(function (response) {
           console.log(response);    
           if (response.data.raining){
