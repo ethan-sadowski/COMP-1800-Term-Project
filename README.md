@@ -21,8 +21,19 @@ Finally, the product will incorporate two API's, the DarkSky Weather API and the
 | Section | Font | Colour |
 | --- | --- | :---: |
 | NavBar | Helvetica Neue | White |
-| Headers | Helvetica Neue | Black |
+| Headers | Helvetica Neue | Black, White, or #343A40 (Dark Grey) |
 | Reminders Header | Playfair Display | White text with text-shadow: 3px 3px rgb(21, 75, 75) |
+| Body Text | Helvetica Neue | Black, White, or #343A40 (Dark Grey) |
+| Buttons (Text) | Helvetica Neue | White or #343A40 (Dark Grey) |
+
+### Buttons:
+| Button Location/Section | Body Colour|
+| --- | --- |
+| Landing Page Buttons | #616A72 (Slate Gray) |
+| "Your Reminders" Button | #343A40 (Slate Gray #2) |
+| Edit Button | #E0A800 (Mustard Yellow) |
+| Delete Button | #C82332 (Red) |
+
 
 ### Background:
 The background is a linear-gradient at 30 degrees using three rgba colours in the folllowing order:
