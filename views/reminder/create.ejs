@@ -43,8 +43,7 @@
   <% } %> -->
 
   <script>    
-  //get x, y axis from location object
-
+  
   //get user's geo location, pass object to showLocation()
     function getLocation() {
         if (navigator.geolocation) {
@@ -56,6 +55,7 @@
 
     function locationDate(position) {        
       //get location data
+      //get x, y axis from location object
       let latitude = position.coords.latitude;
       let longtitude = position.coords.longitude;
       console.log("Latitude: " + latitude);
@@ -63,26 +63,27 @@
         
       //get time from userInput_date
       let date = document.getElementById('dateInput').value;
+      //alert user if no date is selected, else send data to getWeather()
+      if (date.length == 0){alert('Please select a date first')}
+      else{
+            //convert to UNIX time
+            date = new Date(date).getTime() / 1000;
+            //check on the front end and see if date in UNIX format
+            console.log(date);
+            //use axios to prevent the page to be redirected and send location and date data to backend.
+            axios.get('/weather?date=' + date + '&latitude=' + latitude + '&longtitude=' + longtitude)
+              .then(function (response) {
+                console.log(response);    
+                if (response.data.raining){
+                  document.getElementById('umbrella').src='https://i.imgur.com/3SdDbN3.png'
+                }
+                else{
+                  document.getElementById('umbrella').src='https://i.imgur.com/26ijETQ.png'
+                }
+              })        
+              // document.getElementById('umbrella').disabled = true; 
+            }      
 
-      // if (date === NaN){alert('Please select a date first')}
-      
-      //convert to UNIX time
-      date = new Date(date).getTime() / 1000;
-      //check on the front end and see if date in UNIX format
-      console.log(date);
-      //use axios to prevent the page to be redirected
-      //get the response from /weather when API form is submited/umbrella is being clicked
-      axios.get('/weather?date=' + date + '&latitude=' + latitude + '&longtitude=' + longtitude)
-        .then(function (response) {
-          console.log(response);    
-          if (response.data.raining){
-            document.getElementById('umbrella').src='https://i.imgur.com/3SdDbN3.png'
-          }
-          else{
-            document.getElementById('umbrella').src='https://i.imgur.com/26ijETQ.png'
-          }
-        })
-        // document.getElementById('umbrella').disabled = true; 
 
     }
 
