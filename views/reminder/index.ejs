@@ -1,42 +1,47 @@
 <div class="container">
   <h1 class="page-header">Reminders</h1>
-
-<ul class="list-group">
-  <% reminders.forEach(function (reminderItem) { %>
-    <li class="list-group-item">
-      <h5><strong><%= reminderItem.title %>: </strong></h5>
-      <%= reminderItem.description %>
-      <br>
-      <strong>Date:</strong>
-      <%= reminderItem.date %>
-      <br>
-      <br>
-      <h6><strong>Subtasks:</strong></h6>
-      <div class="container">
-        <ul class="list-group">
-          <% reminderItem.subtasks.forEach(function(item) { %>
-            <% if (item != "") { %>
-  
-            <!-- <a href="#" class="badge badge-info"><%= item %> %></a> -->
-              
-            <li><%= item %> %></li>
-            <% } %>
-            <%}); %>
-                
-          </ul>
-      </div>
-
-      <br>
-      <strong>Completed:</strong>
-      <% if (reminderItem.completed == true) { %>
-        <span class="label label-success">Yes ✅</span>
-      <% } else if (reminderItem.completed == false) { %>
-        <span class="label label-danger">No ❌</span>
-      <% } %>
-      <br>
-      <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>
-    </li>
-  <% }) %>
-</ul>
-
 </div>
+
+<div class="container" style="border-radius: 25pt;">
+  <ul class="list-group">
+    <% reminders.forEach(function (reminderItem) { %>
+      <li class="list-group-item" style="border-radius: 14pt;">
+        <h5><strong><%= reminderItem.title %>: </strong></h5>
+        <%= reminderItem.description %>
+        <br>
+        <strong>Date:</strong>
+        <%= reminderItem.date %>
+        <br>
+        <br>
+        <h6><strong>Subtasks:</strong></h6>
+        <div class="container">
+          <ul class="list-group">
+            <% reminderItem.subtasks.forEach(function(item) { %>
+              <% if (item != "") { %>
+    
+              <!-- <a href="#" class="badge badge-info"><%= item %> %></a> -->
+                
+              <li><%= item %> %></li>
+              <% } %>
+              <%}); %>
+                  
+            </ul>
+        </div>
+
+        <br>
+        <strong>Completed:</strong>
+        <% if (reminderItem.completed == true) { %>
+          <span class="label label-success">Yes ✅</span>
+        <% } else if (reminderItem.completed == false) { %>
+          <span class="label label-danger">No ❌</span>
+        <% } %>
+        <br>
+        <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>
+      </li>
+    
+      <hr class="featurette-divider">
+
+    <% }) %>
+  </ul>
+</div>
+
