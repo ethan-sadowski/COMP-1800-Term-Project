@@ -16,6 +16,8 @@ Finally, the product will incorporate two API's, the DarkSky Weather API and the
 | Vivian Cao | vivian.w.cao@gmail.com |
 
 ## Design:
+Design was implemented using Bootstrap's CSS and JS.
+
 ### Font:
 
 | Section | Font | Colour |
@@ -42,6 +44,19 @@ The background is a linear-gradient at 30 degrees using three rgba colours in th
 2. rgba(54, 108, 96, 0.796) 46%
 3. rgba(30, 122, 118, 0.925) 100%
 
+
+## API:
+Remo utilizes the following APIs:
+
+| API | Documentation|
+| --- | --- |
+| DarkSky Weather API | https://darksky.net/dev/docs |
+| HTML5 Geolocation API | https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API |
+
+## Database:
+The external storage for the Remo application uses an integrated Google Sheet.
+
+
 ## How to Run:
 To run our application on your own computer, please follow the following steps:
 
@@ -49,7 +64,7 @@ To run our application on your own computer, please follow the following steps:
 2. In your console, go to the directory containing the files
 3. Run npm install
 4. Type node index.js into the console
-5. Go to your browser and enter localhost:3000/
+5. Go to your browser and enter localhost:3000
 
 
 

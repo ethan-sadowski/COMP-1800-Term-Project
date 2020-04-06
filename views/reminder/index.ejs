@@ -12,14 +12,20 @@
       <br>
       <br>
       <h6><strong>Subtasks:</strong></h6>
+      <div class="container">
         <ul class="list-group">
-        <% reminderItem.subtasks.forEach(function(item) { %>
-          <% if (item != "") { %>
-          <li><%= item %> %></li>
-          <% } %>
-          <%}); %>
+          <% reminderItem.subtasks.forEach(function(item) { %>
+            <% if (item != "") { %>
+  
+            <!-- <a href="#" class="badge badge-info"><%= item %> %></a> -->
               
-        </ul>
+            <li><%= item %> %></li>
+            <% } %>
+            <%}); %>
+                
+          </ul>
+      </div>
+
       <br>
       <strong>Completed:</strong>
       <% if (reminderItem.completed == true) { %>
