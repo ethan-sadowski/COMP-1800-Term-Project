@@ -22,14 +22,14 @@
             <%}); %>    
             </ul>
         </div> 
-        </ul>
+        <br>
+        <h6><strong>Tags:</strong></h6>
         <div>
-          <h6><strong>Tags:</strong></h6>
           <% reminderItem.tags.forEach(function(item) { %>
             <% if (item != '' && item != undefined) { %>
-              <button type="button" class="btn btn-primary" style="border:double"><%= item %></button>
+              <button type="button" class="btn btn-sm btn-info"><%= item %></button>
             <% } %>
-          <%}); %>
+            <%}); %>
         </div>
         <br>
         <strong>Completed:</strong>
