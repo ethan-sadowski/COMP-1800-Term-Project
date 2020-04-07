@@ -71,7 +71,7 @@ To run our application on your own computer, please follow the following steps:
 ## Incomplete Features:
 The following is a list of features our group did not get to finish by April 14th 2020:
 
-1. 
+1. Tags were intended to be able to be deleted on click.
 
 
 
