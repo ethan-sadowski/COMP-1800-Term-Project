@@ -20,9 +20,9 @@
 ### Ethan Sadowski:
 | Task | Description |
 | ----------- | ----------- |
-| Task | Des |
-| Task | Des |
-| Task | Des |
+| Subtasks/Date/Tags | Added the option to input these parameters for each task in the reminder list. |
+| Researched Google Sheets API | Gathered enough resources to understand how the API works to be able to implement it. |
+| Storing/Importing Tasks from Google Sheet | Implemented a set of functions that store our tasks in a google sheet. |
 
 
 ### Vivian Cao:
