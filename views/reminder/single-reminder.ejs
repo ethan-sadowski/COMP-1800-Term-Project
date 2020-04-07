@@ -25,7 +25,10 @@
         <h6><strong>Tags:</strong></h6>
           <% reminderItem.tags.forEach(function(item) { %>
             <% if (item != '' && item != undefined) { %>
-            <button type="button" class="btn btn-sm btn-info"><%= item %></button>
+            <button type="button" class="btn btn-sm btn-info" aria-label="Close">
+              <%= item %>
+              <span aria-hidden="true">&times;</span>
+            </button>
             <% } %>
           <%}); %>
         <br>

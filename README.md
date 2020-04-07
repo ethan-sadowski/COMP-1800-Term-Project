@@ -33,8 +33,9 @@ Design was implemented using Bootstrap's CSS and JS.
 | --- | --- |
 | Landing Page Buttons | #616A72 (Slate Gray) |
 | "Your Reminders" Button | #343A40 (Slate Gray #2) |
-| Edit Button | #E0A800 (Mustard Yellow) |
-| Delete Button | #C82332 (Red) |
+| Edit Button | #E0A800 (Mustard Yellow - Bootstrap "Warning") |
+| Delete Button | #C82332 (Red - Bootstrap "Danger" ) |
+| Tag Buttons | #19A2B8 (Turquoise - Bootstrap "Info") |
 
 
 ### Background:
@@ -65,6 +66,13 @@ To run our application on your own computer, please follow the following steps:
 3. Run npm install
 4. Type node index.js into the console
 5. Go to your browser and enter localhost:3000
+
+
+## Incomplete Features:
+The following is a list of features our group did not get to finish by April 14th 2020:
+
+1. 
+
 
 
 
