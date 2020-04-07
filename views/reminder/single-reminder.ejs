@@ -2,30 +2,35 @@
   <h1 class="page-header">Reminders</h1>
 
     <ul class="list-group">
-      <li class="list-group-item">
-        <h3><strong>Task Name:</strong></h3>
+      <li class="list-group-item" style="border-radius: 14pt;">
+        <h3><strong></strong></h3>
         <h3><strong><%= reminderItem.title %> </strong></h3>
         <br>
-        <h5><strong>Reminder Date:</strong></h5>
+        <h5><strong>Date:</strong></h5>
         <h5><strong><%= reminderItem.date %> </strong></h5>
         <br>
         <h4><%= reminderItem.description %></h4>
         <br>
         <h6><strong>Subtasks:</strong></h6>
-        <ul class="list-group">
-        <% reminderItem.subtasks.forEach(function(item) { %>
-          <% console.log(item) %>
-          <% if (item != "") { %>
-          <li><%= item %></li>
-          <% } %>
-      <%}); %>
-      </ul>
-      <h6><strong>Tags:</strong></h6>
-      <% reminderItem.tags.forEach(function(item) { %>
-        <% if (item != '' && item != undefined) { %>
-        <button type="button" class="btn btn-primary" style="border:double"><%= item %></button>
-        <% } %>
-    <%}); %>
+        <div class="container">
+          <ul class="list-group">
+            <% reminderItem.subtasks.forEach(function(item) { %>
+              <% console.log(item) %>
+              <% if (item != "") { %>
+                <li><%= item %></li>
+              <% } %>
+            <%}); %>
+          </ul>
+        </div>
+        <br>
+        <h6><strong>Tags:</strong></h6>
+          <% reminderItem.tags.forEach(function(item) { %>
+            <% if (item != '' && item != undefined) { %>
+            <button type="button" class="btn btn-sm btn-info"><%= item %></button>
+            <% } %>
+          <%}); %>
+        <br>
+        <br>
         <h4>Completed:
           <% if (reminderItem.completed == true) { %>
             <span class="label label-success">Yes ✅</span>
