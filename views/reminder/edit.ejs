@@ -1,5 +1,7 @@
 <div class="container">
   <h1 class="page-header">Edit</h1>
+</div>
+<div class="container">
   <form action=<%= "/reminder/update/" + reminderItem.id %> method="POST">
     <div class="form-group">
       <label for="title">Title</label>
@@ -8,7 +10,7 @@
     <div class="form-group">
       <label for="date">Reminder Date:</label>
       <br>
-      <input type="date" id="dateInput" rows="1" placeholder="Date" name="date" value="<%= reminderItem.date %>"></input>
+      <input type="date" id="dateInput" rows="1" placeholder="Date" name="date" value="<%= reminderItem.date %>" style="border-radius: 2pt; border: none;"></input>
     </div>
     <div class="form-group">
       <label for="description">Description</label>
@@ -16,19 +18,20 @@
       <div class="form-group">
         <label for="subtasks">Subtasks:</label>
         <br>
-        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask1" value="<%= reminderItem.subtasks[0] %>"></input>
-        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask2" value="<%= reminderItem.subtasks[1] %>"></input>
-        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask3" value="<%= reminderItem.subtasks[2] %>"></input>
-        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask4" value="<%= reminderItem.subtasks[3] %>"></input>
+        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask1" value="<%= reminderItem.subtasks[0] %>" style="border-radius: 2pt; border: none;"></input>
+        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask2" value="<%= reminderItem.subtasks[1] %>" style="border-radius: 2pt; border: none;"></input>
+        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask3" value="<%= reminderItem.subtasks[2] %>" style="border-radius: 2pt; border: none;"></input>
+        <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask4" value="<%= reminderItem.subtasks[3] %>" style="border-radius: 2pt; border: none;"></input>
       </div>
     </div>
     <div class="form-group">
       <br>
       <label for="subtasks">Tags:</label>
-      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag1" value="<%=reminderItem.tags[0]%>"></input>
-      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag2" value="<%=reminderItem.tags[1]%>"></input>
-      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag3" value="<%=reminderItem.tags[2]%>"></input>
-      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag4" value="<%=reminderItem.tags[3]%>"></input>
+      <br>
+      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag1" value="<%=reminderItem.tags[0]%>" style="border-radius: 2pt; border: none;"></input>
+      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag2" value="<%=reminderItem.tags[1]%>" style="border-radius: 2pt; border: none;"></input>
+      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag3" value="<%=reminderItem.tags[2]%>" style="border-radius: 2pt; border: none;"></input>
+      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag4" value="<%=reminderItem.tags[3]%>" style="border-radius: 2pt; border: none;"></input>
     </div>
     <div class="form-group">
       <label for="completed">Completed</label>
