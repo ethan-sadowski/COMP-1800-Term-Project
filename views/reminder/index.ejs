@@ -5,7 +5,10 @@
   <ul class="list-group">
     <% reminders.forEach(function (reminderItem) { %>
       <li class="list-group-item" style="border-radius: 14pt;">
-        <h5><strong><%= reminderItem.title %>: </strong></h5>
+        <div class="row">
+        <div class="col-sm">
+
+        <h5><strong><%= reminderItem.title %> </strong></h5>
         <%= reminderItem.description %>
         <br>
         <strong>Date:</strong>
@@ -22,15 +25,7 @@
             <%}); %>    
             </ul>
         </div> 
-        <br>
-        <h6><strong>Tags:</strong></h6>
-        <div>
-          <% reminderItem.tags.forEach(function(item) { %>
-            <% if (item != '' && item != undefined) { %>
-              <button type="button" class="btn btn-sm btn-info"><%= item %></button>
-            <% } %>
-            <%}); %>
-        </div>
+    
         <br>
         <strong>Completed:</strong>
         <% if (reminderItem.completed == true) { %>
@@ -40,9 +35,29 @@
         <% } %>
         <br>
         <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>
+      </div>
+      <div class="col-sm" style="text-align: right;">
+        <div>
+          <% reminderItem.tags.forEach(function(item) { %>
+            <% if (item != '' && item != undefined) { %>
+              <button type="button" class="btn btn-sm btn-info">
+                <%= item %>
+                <span aria-hidden="true">&times;</span>
+
+              </button>
+            <% } %>
+            <%}); %>
+        </div>
+
+      </div>
+
+    </div>
+      
       </li>
+
       <hr class="featurette-divider">
     <% }) %>
   </ul>
+
 </div>
 
