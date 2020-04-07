@@ -11,9 +11,9 @@
 ### Arjun Dhaliwal:
 | Task | Description |
 | ----------- | ----------- |
-| Landing Page | asdfdsfgsfdg |
-| CSS and Styling | dsgfdgfvdfvc |
-| Documentation | dfgfbfddfdsg |
+| Landing Page | Created a landing page for the application by using Bootstrap and other resources. On-scroll animations were implemented after some research to provide a dynamic visualization to the website  |
+| CSS and Styling | Implemented and maintained CSS styling throughout the application. This included fonts, colours, images DIV types, buttons and border radii. |
+| Documentation | Created and maintained the README.md documentation for the application. |
 
 
 
