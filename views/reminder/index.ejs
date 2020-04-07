@@ -3,10 +3,12 @@
 </div>
 <div class="container" style="border-radius: 25pt;">
   <ul class="list-group">
+    <!-- For each reminder -->
     <% reminders.forEach(function (reminderItem) { %>
-      <li class="list-group-item" style="border-radius: 14pt;">
-        <div class="row">
-        <div class="col-sm">
+    <li class="list-group-item" style="border-radius: 14pt;">
+    <div class="row">
+        <!-- First Column -->
+        <div class="col">
 
         <h5><strong><%= reminderItem.title %> </strong></h5>
         <%= reminderItem.description %>
@@ -36,15 +38,16 @@
         <br>
         <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>
       </div>
-      <div class="col-sm" style="text-align: right;">
+      <!-- Second Column -->
+      <div class="col" style="text-align: right;">
         <div>
           <% reminderItem.tags.forEach(function(item) { %>
             <% if (item != '' && item != undefined) { %>
               <button type="button" class="btn btn-sm btn-info">
                 <%= item %>
                 <span aria-hidden="true">&times;</span>
-
               </button>
+            
             <% } %>
             <%}); %>
         </div>
@@ -53,9 +56,9 @@
 
     </div>
       
-      </li>
-
-      <hr class="featurette-divider">
+    </li>
+    <!-- Create space between -->
+    <hr class="featurette-divider">
     <% }) %>
   </ul>
 
