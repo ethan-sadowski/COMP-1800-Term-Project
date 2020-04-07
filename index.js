@@ -42,6 +42,8 @@ app.post("/reminder/delete/:id", reminderController.delete);
 
 app.get('/weather', reminderController.getWeather);
 
+app.get('/tagClick', reminderController.deleteTag);
+
 app.listen(3000, function(){
   console.log("Server running. Visit: localhost:3000 in your browser 🚀");
 })

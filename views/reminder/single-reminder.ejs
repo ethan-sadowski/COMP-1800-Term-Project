@@ -21,7 +21,7 @@
         <h6><strong>Tags:</strong></h6>
           <% reminderItem.tags.forEach(function(item) { %>
             <% if (item != '' && item != undefined) { %>
-              <button type="button" class="btn btn-primary" style="border:double"><%= item %></button>
+            <button type="button" class="btn btn-primary" id="<% item.index() %>"style="border:double"><%= item %></button>
             <% } %>
           <%}); %>
         <h4>Completed:
@@ -38,3 +38,10 @@
       </li>
     </ul>
 </div>
+
+<script>
+  function tagClick(){
+    axios.get('/tagClick' + reminderTagId + reminderItem.id)
+    document.getElementById(reminderTagId).remove()
+  }
+</script>
