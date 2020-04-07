@@ -28,6 +28,10 @@
 ### Vivian Cao:
 | Task | Description |
 | ----------- | ----------- |
-| Task | Des |
-| Task | Des |
-| Task | Des |
+| Trello board | Created basic tasks on the Trello board. Team members implemented it as we progressed.|
+| Switch to Sample code | Migrated early stage CSS design to Armaan's sample code. |
+| Researched DarkSky API - time machine | Watched Armaan's video and started with the sample code. Used UNIX time converter to get the correct time format for the time machine.|
+| Research on how data is delievered between the backend, the API, and the front end | Managed to use an alternative method to receive and send data between create.ejs, Controller.js(/weather) |
+| Reseach on the HTML 5 Geo Location API | Practiced to undertand how to work with the call back funcion and get the geolocation information in variables |
+
+
