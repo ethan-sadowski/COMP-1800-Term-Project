@@ -226,6 +226,45 @@ let remindersController = {
     {res.json({raining: false});}   
   },
 
+  deleteTag: (req, res) => {
+    tagId = parseInt(req.query.reminderTagId)
+    var target;
+    if ((tagID + 10) == 11){
+      target == ':K'
+    } else if ((tagID + 10) == 12) {
+      target == ':L'
+    } else if ((tagID + 10) == 13){
+      target == ':M'
+    } else {
+      target == ':N'
+    }
+    reminderId = req.query.reminderItem.id
+    let deleteRange = "Sheet1!A" + reminderId + target + reminderId;
+    let values = [[""]]
+    let resource = {
+      values,
+    }
+    fs.readFile('credentials.json', (err, content) => {
+      if (err) return console.log('Error loading client secret file:', err);
+      
+      // Authorize a client with credentials, then call the Google Sheets API.
+      authorize(JSON.parse(content), function(auth){
+        const sheets = google.sheets({version: 'v4', auth});
+        sheets.spreadsheets.values.update({
+          auth: auth,
+          spreadsheetId: '1l8XiLrVRqbjaBzmKJBmi4aMxKqlJdV6b_XT_mTH0vAQ',
+          range: deleteRange,
+          valueInputOption: "RAW",
+          resource,
+        }, (err, result) => {
+        if (err) {
+          console.log(err);
+        } 
+      })
+      });
+    });
+  },
+
   refreshReminders: (req, res) => {
     Database.cindy.reminders = [];
     fs.readFile('credentials.json', (err, content) => {

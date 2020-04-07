@@ -44,3 +44,10 @@
       </li>
     </ul>
 </div>
+
+<script>
+  function tagClick(){
+    axios.get('/tagClick' + reminderTagId + reminderItem.id)
+    document.getElementById(reminderTagId).remove()
+  }
+</script>
