@@ -124,8 +124,9 @@ function listReminders(auth) {
             date: data[i][2],
             description: data[i][3],
             rain: bool = data[i][4] == "true",
-            subtasks: [data[i][5], data[0][6], data[0][7], data[0][8]],
+            subtasks: [data[i][5], data[i][6], data[i][7], data[i][8]],
             completed: bool = data[i][9] == "true",
+            tags: [data[i][10], data[i][11], data[i][12], data[i][13]]
           }
           Database.cindy.reminders.push(newReminder);
         }

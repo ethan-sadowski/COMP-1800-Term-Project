@@ -22,7 +22,14 @@
         <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask4" value="<%= reminderItem.subtasks[3] %>"></input>
       </div>
     </div>
-
+    <div class="form-group">
+      <br>
+      <label for="subtasks">Tags:</label>
+      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag1" value="<%=reminderItem.tags[0]%>"></input>
+      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag2" value="<%=reminderItem.tags[1]%>"></input>
+      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag3" value="<%=reminderItem.tags[2]%>"></input>
+      <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag4" value="<%=reminderItem.tags[3]%>"></input>
+    </div>
     <div class="form-group">
       <label for="completed">Completed</label>
       <div class="radio">
