@@ -36,7 +36,7 @@ app.get("/refresh", reminderController.refreshReminders);
 
 app.post("/reminder/", reminderController.create);
 
-app.post("/reminder/update/:id", reminderController.update); // suggestion for class: look into put and post
+app.post("/reminder/update/:id", reminderController.update);
 
 app.post("/reminder/delete/:id", reminderController.delete);
 
@@ -46,22 +46,21 @@ app.listen(3000, function(){
   console.log("Server running. Visit: localhost:3000 in your browser 🚀");
 })
 
+
+//Retrieves our credentials and authenticates a request to read from our google sheet using listReminders
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
   authorize(JSON.parse(content), listReminders);
 });
 
-/**
- * Create an OAuth2 client with the given credentials, and then execute the given callback function.
- * @param {Object} credentials The authorization client credentials.
- * @param {function} callback The callback to call with the authorized client.
- */
+
 function authorize(credentials, callback) {
   const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(
       client_id, client_secret, redirect_uris[0]);
 
   // Check if we have previously stored a token.
+  // If we dont, getNewToken is called.
   fs.readFile(TOKEN_PATH, (err, token) => {
     if (err) return getNewToken(oAuth2Client, callback);
     oAuth2Client.setCredentials(JSON.parse(token));
@@ -69,12 +68,7 @@ function authorize(credentials, callback) {
   });
 }
 
-/**
- * Get and store new token after prompting for user authorization, and then
- * execute the given callback with the authorized OAuth2 client.
- * @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
- * @param {getEventsCallback} callback The callback for the authorized client.
- */
+//Prompts the user to log into gmail in order to create a json token.
 function getNewToken(oAuth2Client, callback) {
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
@@ -90,6 +84,7 @@ function getNewToken(oAuth2Client, callback) {
     oAuth2Client.getToken(code, (err, token) => {
       if (err) return console.error('Error while trying to retrieve access token', err);
       oAuth2Client.setCredentials(token);
+
       // Store the token to disk for later program executions
       fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
         if (err) return console.error(err);
@@ -100,10 +95,7 @@ function getNewToken(oAuth2Client, callback) {
   });
 }
 
-/*
- * 
- * @param {google.auth.OAuth2} auth The authenticated Google OAuth client.
- */
+//Populates Database.cindy with the reminders stored in our google sheet.
 function listReminders(auth) {
   const sheets = google.sheets({version: 'v4', auth});
   sheets.spreadsheets.values.get({

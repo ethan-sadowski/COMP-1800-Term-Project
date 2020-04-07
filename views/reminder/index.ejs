@@ -1,7 +1,6 @@
 <div class="container">
   <h1 class="page-header">Reminders</h1>
 </div>
-
 <div class="container" style="border-radius: 25pt;">
   <ul class="list-group">
     <% reminders.forEach(function (reminderItem) { %>
@@ -18,24 +17,20 @@
           <ul class="list-group">
             <% reminderItem.subtasks.forEach(function(item) { %>
               <% if (item != "") { %>
-    
-              <!-- <a href="#" class="badge badge-info"><%= item %> %></a> -->
-                
-              <li><%= item %> %></li>
+                <li><%= item %></li>
               <% } %>
-              <%}); %>
-                  
+            <%}); %>    
             </ul>
         </div> 
         </ul>
         <div>
           <h6><strong>Tags:</strong></h6>
-        <% reminderItem.tags.forEach(function(item) { %>
-          <% if (item != '' && item != undefined) { %>
-          <button type="button" class="btn btn-primary" style="border:double"><%= item %></button>
-          <% } %>
-      <%}); %>
-    </div>
+          <% reminderItem.tags.forEach(function(item) { %>
+            <% if (item != '' && item != undefined) { %>
+              <button type="button" class="btn btn-primary" style="border:double"><%= item %></button>
+            <% } %>
+          <%}); %>
+        </div>
         <br>
         <strong>Completed:</strong>
         <% if (reminderItem.completed == true) { %>
@@ -46,10 +41,7 @@
         <br>
         <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>
       </li>
-    
       <hr class="featurette-divider">
-
-
     <% }) %>
   </ul>
 </div>
