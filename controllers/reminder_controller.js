@@ -7,12 +7,6 @@ var {OAuth2Client} = require('google-auth-library');
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const readline = require('readline');
 
-/**
- * Create an OAuth2 client with the given credentials, and then execute the
- * given callback function.
- * @param {Object} credentials The authorization client credentials.
- * @param {function} callback The callback to call with the authorized client.
- */
 function authorize(credentials, callback) {
   const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(
@@ -27,10 +21,6 @@ function authorize(credentials, callback) {
   });
 }
 
-/*
-* @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
-* @param {getEventsCallback} callback The callback for the authorized client.
-*/
 function getNewToken(oAuth2Client, callback) {
  const authUrl = oAuth2Client.generateAuthUrl({
    access_type: 'offline',
@@ -78,9 +68,10 @@ let remindersController = {
     }
   },
 
+  //Creates a reminder and adds it to Database.cindy and our google sheet.
   create: (req, res) => {
 
-    //If there are no item in Database.cindy, the first Id = 1, otherwise any new Ids become the length of the
+    //If there are no items in Database.cindy, the first Id = 1, otherwise any new Ids become the length of the
     //array of storage + 1.
     let nextId;
     if (Database.cindy.reminders.length != 0){
@@ -140,6 +131,7 @@ let remindersController = {
     res.render('reminder/edit', { reminderItem: searchResult })
   },
 
+  //Updates the parameters of a task in Database.cindy as well as our google sheet.
   update: (req, res) => {
     let reminderToFind = req.params.id;
     let searchResult = Database.cindy.reminders.find(function(reminder) {
@@ -173,7 +165,6 @@ let remindersController = {
               resource,
             }, (err, result) => {
             if (err) {
-              // Handle error
               console.log(err);
             } else {
               console.log('%d cells updated.', result.updatedCells);
@@ -185,6 +176,7 @@ let remindersController = {
     res.redirect('/reminder/' + reminderToFind)
   },
 
+  //Deletes a reminder from Database.cindy as well as our google sheet.
   delete: (req, res) => {
     let reminderToFind = req.params.id;
     let reminderIndex = Database.cindy.reminders.findIndex(function(reminder) {
@@ -193,7 +185,7 @@ let remindersController = {
     Database.cindy.reminders.splice(reminderIndex, 1);
 
     //Removes task from the google sheet by removing the values in its cells
-    //Possible to edit this to delete an entire row instead of updating its contents?
+    //Possible to edit this to delete an entire row instead of updating its contents to empty strings?
     let deleteRange = "Sheet1!A" + req.params.id + ":N" + req.params.id;
     let values = [["", "", "", "", "", "", "", "", "", "", "", "", "", ""]]
     let resource = {
@@ -213,7 +205,6 @@ let remindersController = {
           resource,
         }, (err, result) => {
         if (err) {
-          // Handle error
           console.log(err);
         } 
       })
