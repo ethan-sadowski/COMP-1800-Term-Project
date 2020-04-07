@@ -1,4 +1,4 @@
-# COMP 1800 - Reminder App Documentation
+# COMP 1800 - Remo (Reminder App) Documentation
 
 ## Project Purpose:
 The mission of this project is to develop and ship/host a working reminder app. 
@@ -16,13 +16,27 @@ Finally, the product will incorporate two API's, the DarkSky Weather API and the
 | Vivian Cao | vivian.w.cao@gmail.com |
 
 ## Design:
+Design was implemented using Bootstrap's CSS and JS.
+
 ### Font:
 
 | Section | Font | Colour |
 | --- | --- | :---: |
 | NavBar | Helvetica Neue | White |
-| Headers | Helvetica Neue | Black |
+| Headers | Helvetica Neue | Black, White, or #343A40 (Dark Grey) |
 | Reminders Header | Playfair Display | White text with text-shadow: 3px 3px rgb(21, 75, 75) |
+| Body Text | Helvetica Neue | Black, White, or #343A40 (Dark Grey) |
+| Buttons (Text) | Helvetica Neue | White or #343A40 (Dark Grey) |
+
+### Buttons:
+| Button Location/Section | Body Colour|
+| --- | --- |
+| Landing Page Buttons | #616A72 (Slate Gray) |
+| "Your Reminders" Button | #343A40 (Slate Gray #2) |
+| Edit Button | #E0A800 (Mustard Yellow - Bootstrap "Warning") |
+| Delete Button | #C82332 (Red - Bootstrap "Danger" ) |
+| Tag Buttons | #19A2B8 (Turquoise - Bootstrap "Info") |
+
 
 ### Background:
 The background is a linear-gradient at 30 degrees using three rgba colours in the folllowing order:
@@ -31,6 +45,19 @@ The background is a linear-gradient at 30 degrees using three rgba colours in th
 2. rgba(54, 108, 96, 0.796) 46%
 3. rgba(30, 122, 118, 0.925) 100%
 
+
+## API:
+Remo utilizes the following APIs:
+
+| API | Documentation|
+| --- | --- |
+| DarkSky Weather API | https://darksky.net/dev/docs |
+| HTML5 Geolocation API | https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API |
+
+## Database:
+The external storage for the Remo application uses an integrated Google Sheet.
+
+
 ## How to Run:
 To run our application on your own computer, please follow the following steps:
 
@@ -38,7 +65,14 @@ To run our application on your own computer, please follow the following steps:
 2. In your console, go to the directory containing the files
 3. Run npm install
 4. Type node index.js into the console
-5. Go to your browser and enter localhost:3000/
+5. Go to your browser and enter localhost:3000
+
+
+## Incomplete Features:
+The following is a list of features our group did not get to finish by April 14th 2020:
+
+1. Tags were intended to be able to be deleted on click.
+
 
 
 
