@@ -6,7 +6,9 @@ const TOKEN_PATH = '../token.json';
 var {OAuth2Client} = require('google-auth-library');
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const readline = require('readline');
+const fetch = require("node-fetch");
 
+//Authorizes an interaction with the google sheets API by providing it with our credentials.
 function authorize(credentials, callback) {
   const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(
@@ -16,11 +18,11 @@ function authorize(credentials, callback) {
   fs.readFile(TOKEN_PATH, (err, token) => {
     if (err) return getNewToken(oAuth2Client, callback);
     oAuth2Client.setCredentials(JSON.parse(token));
-    console.log('aaa')
     callback(oAuth2Client);
   });
 }
 
+//Prompts the user to log into gmail in order to create a json token.
 function getNewToken(oAuth2Client, callback) {
  const authUrl = oAuth2Client.generateAuthUrl({
    access_type: 'offline',
@@ -44,8 +46,6 @@ function getNewToken(oAuth2Client, callback) {
    });
  });
 }
-
-const fetch = require("node-fetch");
 
 let remindersController = {
   list: (req, res) => {
@@ -98,10 +98,10 @@ let remindersController = {
               reminder.tags[1], reminder.tags[2], reminder.tags[3]]]
     const resource = {values,};
     let range = "Sheet1!A" + reminder.id + ":A" + reminder.id;
-  fs.readFile('credentials.json', (err, content) => {
+    fs.readFile('credentials.json', (err, content) => {
     if (err) return console.log('Error loading client secret file:', err);
 
-    // Authorize a client with credentials, then call the Google Sheets API.
+    // Authorize a client with credentials, then call the Google Sheets API with our data.
     authorize(JSON.parse(content), function(auth) {
       const sheets = google.sheets({version: 'v4', auth});
       sheets.spreadsheets.values.append({
@@ -126,7 +126,7 @@ let remindersController = {
   edit: (req, res) => {
     let reminderToFind = req.params.id;
     let searchResult = Database.cindy.reminders.find(function(reminder) {
-      return reminder.id == reminderToFind; // Why do you think I chose NOT to use === here?
+      return reminder.id == reminderToFind;
     });
     res.render('reminder/edit', { reminderItem: searchResult })
   },
@@ -145,33 +145,35 @@ let remindersController = {
         reminder.tags = [req.body.tag1, req.body.tag2, req.body.tag3, req.body.tag4]
       }
 
-      //Updating the google sheet at the same time as locally stored task
+      //Updating the google sheet at the same time as locally stored task.
       let updateRange = "Sheet1!A" + req.params.id + ":N" + req.params.id;
-        let values = [[req.params.id, req.body.title, req.body.description, req.body.date, false, req.body.subtask1,
-                      req.body.subtask2, req.body.subtask3, req.body.subtask4, req.body.completed == "true",
-                      req.body.tag1, req.body.tag2, req.body.tag3, req.body.tag4]]
-        let resource = {values,}
-        fs.readFile('credentials.json', (err, content) => {
-          if (err) return console.log('Error loading client secret file:', err);
 
-          // Authorize a client with credentials, then call the Google Sheets API.
-          authorize(JSON.parse(content), function(auth){
-            const sheets = google.sheets({version: 'v4', auth});
-            sheets.spreadsheets.values.update({
-              auth: auth,
-              spreadsheetId: '1l8XiLrVRqbjaBzmKJBmi4aMxKqlJdV6b_XT_mTH0vAQ',
-              range: updateRange,
-              valueInputOption: "RAW",
-              resource,
-            }, (err, result) => {
+      //Sets the new values stored in the spreadsheet to the values being edited in the task.
+      let values = [[req.params.id, req.body.title, req.body.description, req.body.date, false, req.body.subtask1,
+                    req.body.subtask2, req.body.subtask3, req.body.subtask4, req.body.completed == "true",
+                    req.body.tag1, req.body.tag2, req.body.tag3, req.body.tag4]]
+      let resource = {values,}
+      fs.readFile('credentials.json', (err, content) => {
+      if (err) return console.log('Error loading client secret file:', err);
+
+      // Authorize a client with credentials, then call the Google Sheets API with our data.
+        authorize(JSON.parse(content), function(auth){
+          const sheets = google.sheets({version: 'v4', auth});
+          sheets.spreadsheets.values.update({
+            auth: auth,
+            spreadsheetId: '1l8XiLrVRqbjaBzmKJBmi4aMxKqlJdV6b_XT_mTH0vAQ',
+            range: updateRange,
+            valueInputOption: "RAW",
+            resource,
+          }, (err, result) => {
             if (err) {
               console.log(err);
             } else {
               console.log('%d cells updated.', result.updatedCells);
             }
           })
-          });
         });
+      });
     });
     res.redirect('/reminder/' + reminderToFind)
   },
@@ -184,19 +186,18 @@ let remindersController = {
     })
     Database.cindy.reminders.splice(reminderIndex, 1);
 
-    //Removes task from the google sheet by removing the values in its cells
-    //Possible to edit this to delete an entire row instead of updating its contents to empty strings?
+    //Removes task from the google sheet by removing the values in its cells.
     let deleteRange = "Sheet1!A" + req.params.id + ":N" + req.params.id;
     let values = [["", "", "", "", "", "", "", "", "", "", "", "", "", ""]]
-    let resource = {
-      values,
-    }
+    let resource = {values,}
     fs.readFile('credentials.json', (err, content) => {
       if (err) return console.log('Error loading client secret file:', err);
-      
+
       // Authorize a client with credentials, then call the Google Sheets API.
       authorize(JSON.parse(content), function(auth){
         const sheets = google.sheets({version: 'v4', auth});
+
+        //Cells pertaining to the task being deleted are given empty string values
         sheets.spreadsheets.values.update({
           auth: auth,
           spreadsheetId: '1l8XiLrVRqbjaBzmKJBmi4aMxKqlJdV6b_XT_mTH0vAQ',
@@ -226,51 +227,19 @@ let remindersController = {
     {res.json({raining: false});}   
   },
 
-  deleteTag: (req, res) => {
-    tagId = parseInt(req.query.reminderTagId)
-    var target;
-    if ((tagID + 10) == 11){
-      target == ':K'
-    } else if ((tagID + 10) == 12) {
-      target == ':L'
-    } else if ((tagID + 10) == 13){
-      target == ':M'
-    } else {
-      target == ':N'
-    }
-    reminderId = req.query.reminderItem.id
-    let deleteRange = "Sheet1!A" + reminderId + target + reminderId;
-    let values = [[""]]
-    let resource = {
-      values,
-    }
-    fs.readFile('credentials.json', (err, content) => {
-      if (err) return console.log('Error loading client secret file:', err);
-      
-      // Authorize a client with credentials, then call the Google Sheets API.
-      authorize(JSON.parse(content), function(auth){
-        const sheets = google.sheets({version: 'v4', auth});
-        sheets.spreadsheets.values.update({
-          auth: auth,
-          spreadsheetId: '1l8XiLrVRqbjaBzmKJBmi4aMxKqlJdV6b_XT_mTH0vAQ',
-          range: deleteRange,
-          valueInputOption: "RAW",
-          resource,
-        }, (err, result) => {
-        if (err) {
-          console.log(err);
-        } 
-      })
-      });
-    });
-  },
-
+  //Re-syncs the google sheet infromation with the users local task list
   refreshReminders: (req, res) => {
+
+    //Deletes the current list of reminders.
     Database.cindy.reminders = [];
     fs.readFile('credentials.json', (err, content) => {
       if (err) return console.log('Error loading client secret file:', err);
+
+      //Authorizes an interaction with the googlesheet.
       authorize(JSON.parse(content), function(auth){
         const sheets = google.sheets({version: 'v4', auth});
+
+        //Retrieves the data stored in the google sheet.
         sheets.spreadsheets.values.get({
           spreadsheetId: '1l8XiLrVRqbjaBzmKJBmi4aMxKqlJdV6b_XT_mTH0vAQ',
           range: 'Sheet1',
@@ -280,6 +249,8 @@ let remindersController = {
           if (data == undefined){
             return console.log('No data to return');
           }
+
+          //If the data that was retrieved contains values, tasks are created from those values
           if (data.length) {
             for (i = 0; i < data.length; i++){
               if (data[i][0] != undefined) {
@@ -293,6 +264,8 @@ let remindersController = {
                   completed: bool = data[i][9] == "true",
                   tags: [data[i][10], data[i][11], data[i][12], data[i][13]]
                 }
+          
+          //Newly created tasks are then pushed to Database.cindy.reminders
           Database.cindy.reminders.push(newReminder);
               }
             }
