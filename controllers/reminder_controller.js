@@ -22,7 +22,7 @@ function authorize(credentials, callback) {
   });
 }
 
-//Prompts the user to log into gmail in order to create a json token.
+//Gives us a new JSON token if we do not have one
 function getNewToken(oAuth2Client, callback) {
  const authUrl = oAuth2Client.generateAuthUrl({
    access_type: 'offline',
@@ -46,6 +46,8 @@ function getNewToken(oAuth2Client, callback) {
    });
  });
 }
+
+
 
 let remindersController = {
   list: (req, res) => {

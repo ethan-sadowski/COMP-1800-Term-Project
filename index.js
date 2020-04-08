@@ -42,8 +42,6 @@ app.post("/reminder/delete/:id", reminderController.delete);
 
 app.get('/weather', reminderController.getWeather);
 
-app.get('/tagClick', reminderController.deleteTag);
-
 app.listen(3000, function(){
   console.log("Server running. Visit: localhost:3000 in your browser 🚀");
 })
@@ -55,7 +53,7 @@ fs.readFile('credentials.json', (err, content) => {
   authorize(JSON.parse(content), listReminders);
 });
 
-//Authorizes an interaction with the google sheets API by providing it with our credentials.
+
 function authorize(credentials, callback) {
   const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(
@@ -100,8 +98,6 @@ function getNewToken(oAuth2Client, callback) {
 //Populates Database.cindy with the reminders stored in our google sheet.
 function listReminders(auth) {
   const sheets = google.sheets({version: 'v4', auth});
-
-  //Calls the google sheet to retrieve its data.
   sheets.spreadsheets.values.get({
     spreadsheetId: '1l8XiLrVRqbjaBzmKJBmi4aMxKqlJdV6b_XT_mTH0vAQ',
     range: 'Sheet1',
@@ -111,8 +107,6 @@ function listReminders(auth) {
     if (data == undefined){
       return console.log('No data to return');
     }
-
-    //If there is data in the sheet, reminders are created from that data and added to Database.cindy.reminders.
     if (data.length) {
       for (i = 0; i < data.length; i++){
         if (data[i][0] != undefined) {
