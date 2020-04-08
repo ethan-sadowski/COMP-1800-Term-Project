@@ -57,6 +57,14 @@ Remo utilizes the following APIs:
 ## Database:
 The external storage for the Remo application uses an integrated Google Sheet.
 
+View here:
+https://docs.google.com/spreadsheets/d/1l8XiLrVRqbjaBzmKJBmi4aMxKqlJdV6b_XT_mTH0vAQ/edit?usp=sharing
+
+
+## Trello Board:
+A link to our Trello board:
+https://trello.com/b/dWrCo9iu/comp-1800-term-project
+
 
 ## How to Run:
 To run our application on your own computer, please follow the following steps:
@@ -72,6 +80,8 @@ To run our application on your own computer, please follow the following steps:
 The following is a list of features our group did not get to finish by April 14th 2020:
 
 1. Tags were intended to be able to be deleted on click.
+2. We wanted users to able to search through their reminders by keywords or tags.
+3. Upload and download of reminders (although, the reminders are accessible through the google sheet).
 
 
 
