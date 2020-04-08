@@ -11,8 +11,8 @@
 ### Arjun Dhaliwal:
 | Task | Description |
 | ----------- | ----------- |
-| Landing Page | Created a landing page for the application by using Bootstrap and other resources. On-scroll animations were implemented after some research to provide a dynamic visualization to the website  |
-| CSS and Styling | Implemented and maintained CSS styling throughout the application. This included fonts, colours, images DIV types, buttons and border radii. |
+| Landing Page | Created a landing page for the application by using Bootstrap and other resources. On-scroll animations were implemented after some research to provide a dynamic visualization to the website. Photographs of the application (screenshots or in-use images) were produced. |
+| CSS and Styling | Implemented and maintained CSS styling throughout the application, especially in regards to how the reminders are displayed in the list of all reminders. This included fonts, colours, images DIV types, buttons and border radii. |
 | Documentation | Created and maintained the README.md documentation for the application. |
 
 

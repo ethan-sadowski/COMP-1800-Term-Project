@@ -1,20 +1,31 @@
+<!-- DIV Containing the header in special font -->
 <div class="container">
   <h1 class="page-header">Edit</h1>
 </div>
+
+<!-- DIV containing the Reminder in an editable format -->
 <div class="container">
   <form action=<%= "/reminder/update/" + reminderItem.id %> method="POST">
+
+    <!-- Change the Title -->
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" name="title" class="form-control" id="titleInput" value="<%= reminderItem.title %>">
     </div>
+
+    <!-- Change the Date -->
     <div class="form-group">
       <label for="date">Reminder Date:</label>
       <br>
       <input type="date" id="dateInput" rows="1" placeholder="Date" name="date" value="<%= reminderItem.date %>" style="border-radius: 2pt; border: none;"></input>
     </div>
+
+    <!-- Change the Description -->
     <div class="form-group">
       <label for="description">Description</label>
       <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Description" name="description"><%= reminderItem.description %></textarea>
+      
+      <!-- Change the Subtasks -->
       <div class="form-group">
         <label for="subtasks">Subtasks:</label>
         <br>
@@ -24,6 +35,8 @@
         <input type="text" id="subtaskInput" rows="1" placeholder="Subtask" name="subtask4" value="<%= reminderItem.subtasks[3] %>" style="border-radius: 2pt; border: none;"></input>
       </div>
     </div>
+
+    <!-- Change the Tags -->
     <div class="form-group">
       <br>
       <label for="subtasks">Tags:</label>
@@ -33,6 +46,8 @@
       <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag3" value="<%=reminderItem.tags[2]%>" style="border-radius: 2pt; border: none;"></input>
       <input type="text" id="tagInput" rows="1" placeholder="Tag" name="tag4" value="<%=reminderItem.tags[3]%>" style="border-radius: 2pt; border: none;"></input>
     </div>
+
+    <!-- Choose whether you have completed the reminder or not -->
     <div class="form-group">
       <label for="completed">Completed</label>
       <div class="radio">
@@ -45,6 +60,7 @@
           Yes ✅
         </label>
       </div>
+
       <div class="radio">
         <label>
           <% if (reminderItem.completed == false) { %>
@@ -56,6 +72,8 @@
         </label>
       </div>
     </div>
+
+    <!-- Submit form changes -->
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>

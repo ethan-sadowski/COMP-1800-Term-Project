@@ -1,25 +1,36 @@
 <div class="container">
   <h1 class="page-header">Reminders</h1>
 </div>
+
 <div class="container" style="border-radius: 25pt;">
   <ul class="list-group">
-    <!-- For each reminder -->
+    <!-- For each reminder, it will get displayed in its own DIV block, and follow the following format -->
     <% reminders.forEach(function (reminderItem) { %>
     <li class="list-group-item" style="border-radius: 14pt;">
     <div class="row">
-        <!-- First Column -->
-        <div class="col">
+      <!-- First Column -->
+      <div class="col">
 
+        <!-- Display Reminder Title -->
         <h5><strong><%= reminderItem.title %> </strong></h5>
+
+        <!-- Description -->
         <%= reminderItem.description %>
+
         <br>
+
+        <!-- Date -->
         <strong>Date:</strong>
         <%= reminderItem.date %>
+
         <br>
         <br>
+
         <h6><strong>Subtasks:</strong></h6>
+        <!-- DIV for Subtasks -->
         <div class="container">
           <ul class="list-group">
+            <!-- For each non-empty subtask, display it as a list item in an unordered list -->
             <% reminderItem.subtasks.forEach(function(item) { %>
               <% if (item != "") { %>
                 <li><%= item %></li>
@@ -29,17 +40,28 @@
         </div> 
     
         <br>
+
+        <!-- If the reminder is checked as being completed, displayed "Yes ✅", if not, display "No ❌" -->
         <strong>Completed:</strong>
         <% if (reminderItem.completed == true) { %>
           <span class="label label-success">Yes ✅</span>
         <% } else if (reminderItem.completed == false) { %>
           <span class="label label-danger">No ❌</span>
         <% } %>
+
         <br>
+
+        <!-- This button brings you to the single view for a reminder  -->
         <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>
+
       </div>
+
       <!-- Second Column -->
+      <!-- This column is dedicated to tags, and alligns them to the right so they
+      display in the top right or bottom right corner -->
       <div class="col" style="text-align: right;">
+
+        <!-- Each non-empty Tag will get displayed as a turquoise button -->
         <div>
           <% reminderItem.tags.forEach(function(item) { %>
             <% if (item != '' && item != undefined) { %>
@@ -57,7 +79,7 @@
     </div>
       
     </li>
-    <!-- Create space between -->
+    <!-- Create space between each reminder -->
     <hr class="featurette-divider">
     <% }) %>
   </ul>
