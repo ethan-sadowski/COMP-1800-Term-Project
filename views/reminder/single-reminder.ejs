@@ -2,7 +2,6 @@
   <h1 class="page-header">Reminders</h1>
     <ul class="list-group">
       <li class="list-group-item" style="border-radius: 14pt;">
-        <h3><strong></strong></h3>
         <h3><strong><%= reminderItem.title %> </strong></h3>
         <br>
         <h5><strong>Date:</strong></h5>
@@ -11,6 +10,7 @@
         <h4><%= reminderItem.description %></h4>
         <br>
         <h6><strong>Subtasks:</strong></h6>
+        <!-- This DIV is a container for all subtasks of a reminder (if any) -->
         <div class="container">
           <ul class="list-group">
             <% reminderItem.subtasks.forEach(function(item) { %>
@@ -22,7 +22,9 @@
           </ul>
         </div>
         <br>
+
         <h6><strong>Tags:</strong></h6>
+          <!-- Display each tag as a clickable button (currently nothing happens on click -->
           <% reminderItem.tags.forEach(function(item) { %>
             <% if (item != '' && item != undefined) { %>
             <button type="button" class="btn btn-sm btn-info" aria-label="Close">
@@ -33,6 +35,7 @@
           <%}); %>
         <br>
         <br>
+        <!-- If the reminder is checked as being completed, displayed "Yes ✅", if not, display "No ❌" -->
         <h4>Completed:
           <% if (reminderItem.completed == true) { %>
             <span class="label label-success">Yes ✅</span>
@@ -40,8 +43,10 @@
             <span class="label label-danger">No ❌</span>
           <% } %>
         </h4>
+        <!-- Edit Button -->
         <a class="btn btn-warning" href=<%= "/reminder/" + reminderItem.id + "/edit" %>>Edit</a>
         <form class="deleteForm "method="POST" action=<%= "/reminder/delete/" + reminderItem.id %>>
+          <!-- Delete Button -->
           <button type="submit" class="btn btn-danger">Delete</button>
         </form>
       </li>

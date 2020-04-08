@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Script for the On-Scroll functions -->
     <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-
     <title>Promo Page</title>
 
 </head>
@@ -12,39 +12,27 @@
 <body>
     <!-- CAROUSEL BELOW -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <!-- <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol> -->
+
         <div class="carousel-inner">
+          <!-- First Carousel Image -->
           <div class="carousel-item active">
             <img class="d-block w-100 item-img" src="https://i.imgur.com/G58WL7O.jpg" alt="First slide">
-            <!-- <div class="carousel-caption d-none d-md-block">
-                <h5>Header</h5>
-                <p>Paragraph</p>
-            </div> -->
           </div>
+          <!-- Second Carousel Image -->
           <div class="carousel-item">
             <img class="d-block w-100 item-img" src="https://i.imgur.com/zpOwBzn.jpg" alt="Second slide">
-            <!-- <div class="carousel-caption d-none d-md-block">
-                <h5>Header 2</h5>
-                <p>Para 2</p>
-            </div> -->
           </div>
+          <!-- Third Carousel Image -->
           <div class="carousel-item">
             <img class="d-block w-100 item-img" src="https://i.imgur.com/zpOwBzn.jpg" alt="Third slide">
-            <!-- <div class="carousel-caption d-none d-md-block">
-                <h5>Header 3</h5>
-                src="https://i.imgur.com/yjFnlKc.png"   
-                <p>Paragraph 3</p>
-            </div> -->
           </div>
         </div>
+        <!-- Button to go to Previous Slide -->
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
+        <!-- Button to go to Next Slide -->
         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
@@ -54,6 +42,7 @@
     <!-- PRODUCT INFO BELOW -->
     <div class="container" style="text-align: center;">   
       <div>
+        <!-- Remo Welcome Message -->
           <div class="col-md-5 p-lg-5 mx-auto my-5">
             <h1 class="display-4 font-weight-normal welcome">Welcome to Remo</h1>
             <div class="welcome2">
@@ -66,32 +55,37 @@
           <div class="product-device shadow-sm d-none d-md-block"></div>
           <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
           
+          <!-- DIV for Product Display (Creating Reminder and Viewing) -->
           <div class="flex-md-equal w-100 my-md-3 pl-md-3">
+            <!-- DIV for Creating Reminders -->
             <div class=" text-center text-white overflow-hidden">
               <div class="my-3 py-3 info">
                 <h2 class="display-5">Remember anything</h2>
                 <p class="lead">Add reminders anytime, and for any occasion.</p>
               </div>
               <div class=" mx-auto photo" >
-                <img src="https://i.imgur.com/8RWJYwL.png" alt="Create a Reminder" style="width: 80%; border-radius: 21px; ">
-                <!-- border:#343A40 1pt solid -->
+                <img src="https://i.imgur.com/wl5uFTm.png" alt="Create a Reminder" style="width: 80%; border-radius: 21px; ">
               </div>
             </div>
 
+            <!-- DIV for Reminder List -->
             <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
               <div class="my-3 p-3 info">
                 <h2 class="display-5">Visualize your tasks</h2>
                 <p class="lead">Clearly see what you've accomplished, and what you have left to do.</p>
               </div>
+              <!-- Photo of List View -->
               <div class="mx-auto photo">
-                <img src="https://i.imgur.com/OaMlFWa.png" alt="Reminder List" style="width: 90%; border-radius: 21px; ">
+                <img src="https://i.imgur.com/b4VrDpo.png" alt="Reminder List" style="width: 90%; border-radius: 21px; ">
               </div>
             </div>
           </div>
           
+          <!-- DIV for Calendar and Umbrella -->
           <div class="d-md-flex flex-md-equal text-white w-100 my-md-3 pl-md-3">
-            <div class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden info">
 
+            <!-- Calendar Display -->
+            <div class=" mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden info">
               <div class="my-3 p-3">
                 <h2 class="display-5">Save the date</h2>
                 <p class="lead">Remo easily allows any user to select a date for their reminder with our built-in calendar.</p>
@@ -101,6 +95,7 @@
               </div>
             </div>
 
+            <!-- Umbrella Display -->
             <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden photo">
               <div class="my-3 py-3">
                 <h2 class="display-5">Never get caught in the rain again</h2>
@@ -110,46 +105,52 @@
                 <img src="https://i.imgur.com/oVkKORr.png" alt="Umbrella API" style="width: 100%; border-radius: 21px">
               </div>
             </div>
-
           </div>
+
         <br>
+
+        <!-- What are you waiting for DIV -->
         <div class="flex-md-equal w-100 my-md-3 pl-md-3 joinnow">
           <h1 class="display-5 font-weight-normal welcome">What are you waiting for?</h1>
           <br>
           <a class="btn btn-dark btn-lg" href="/reminder/new" role="button">Get Started with Remo</a>
         </div>
-        <!-- <div >
-        <img src="https://thehappypuppysite.com/wp-content/uploads/2017/12/small-dog-names.jpg" alt="page1" style="max-width:50%; text-align: center; border-radius: 25px; border: black solid 3pt" srcset=""/>
-        </div> -->
       </div>
-      <br>
-      <hr class="featurette-divider">
+
+    <br>
+
+    <hr class="featurette-divider">
+
     </div>
     <!-- MEET THE TEAM -->
     <div class="container">
         <p class="lead">
           <h1 class="team">Meet the team!</h1>
         </p>
+        <!-- Row for Individuals -->
         <div class="row teamnames">
+          <!-- Ethan -->
           <div class="col-lg-4">
             <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Ethan</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
             <h2>Ethan Sadowski</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
             <p><a class="btn btn-secondary" href="#" role="button">View website &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
+          </div>
+          <!-- Arjun -->
           <div class="col-lg-4">
             <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Arjun</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
             <h2>Arjun Dhaliwal</h2>
             <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
             <p><a class="btn btn-secondary" href="#" role="button">View website &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
+          </div>
+          <!-- Vivian -->
           <div class="col-lg-4">
             <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Vivian</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
             <h2>Vivian Cao</h2>
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
             <p><a class="btn btn-secondary" href="#" role="button">View website &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
+          </div>
+        </div>
       </div>
     </div>
 

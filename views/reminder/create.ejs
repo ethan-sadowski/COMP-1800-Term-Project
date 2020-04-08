@@ -1,20 +1,38 @@
+<!-- DIV to center the form in the middle of the page -->
 <div class="container">
+
+  <!-- Space the form away from the NavBar -->
   <br>
+
+  <!-- Form for the creation of a reminder -->
   <form action="/reminder" method="POST">
+
+    <!-- Create a Title -->
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" id="titleInput" placeholder="Title" name="title">
+
+      <!-- Choose a Date and Check Weather -->
       <div class="form-group">
         <label for="date">Reminder Date:</label>
-          <img id='umbrella' class="btn btn-default" src='https://i.imgur.com/26ijETQ.png' alt='need umbrella?' width='70'/>  
+
+        <!-- "Bring an Umbrella" button w/ DarkSky and Geolocation API's -->
+        <img id='umbrella' class="btn btn-default" src='https://i.imgur.com/26ijETQ.png' alt='need umbrella?' width='70'/>  
+        
         <br>
+
+        <!-- Choose a Date -->
         <input type="date" id="dateInput" rows="1" placeholder="Date" name="date" style="border-radius: 2pt; border: none;"></input>
       </div>
     </div>
+
+    <!-- Add a Description -->
     <div class="form-group">
       <label for="description">Description</label>
       <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Description" name="description"></textarea>
     </div>
+
+    <!-- Create up to four Subtasks -->
     <div class="form-group">
       <label for="subtasks">Subtasks:</label>
       <br>
@@ -23,6 +41,8 @@
       <input type="text" id="subtaskInput" rows="1" placeholder=" Subtask" name="subtask3" style="border-radius: 2pt; border: none;"></input>
       <input type="text" id="subtaskInput" rows="1" placeholder=" Subtask" name="subtask4" style="border-radius: 2pt; border: none;"></input>
     </div>
+
+    <!-- Create up to four Tags -->
     <div class="form-group">
       <label for="tags">Create a Tag:</label>
       <br>
@@ -31,33 +51,26 @@
       <input type="text" id="tagInput" rows="1" placeholder=" Tag" name="tag3" style="border-radius: 2pt; border: none;"></input>
       <input type="text" id="tagInput" rows="1" placeholder=" Tag" name="tag4" style="border-radius: 2pt; border: none;"></input>
     </div>
+
+    <!-- Submit the Reminder to the Database -->
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
   
+
+  <!-- DarkSky API -->
   <form action="/weather" method="POST">
   
   </form>  
-  
-  <!-- <% if(data && data.daily && data.daily.icon == 'rain'){ %>
-    <script>
-      document.getElementById('umbrella').src = 'https://i.imgur.com/3SdDbN3.png'
-    </script>
-  <% } else{ %>
-    <script>
-      document.getElementById('umbrella').src = 'https://i.imgur.com/26ijETQ.png'
-    </script>
-  <% } %> -->
 
   <script>    
-  
   //get user's geo location, pass object to showLocation()
     function getLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(locationDate);
-        } else {
-          x.innerHTML = "Geolocation is not supported by this browser.";
-        }
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(locationDate);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
       }
+    }
 
     function locationDate(position) {        
       //get location data

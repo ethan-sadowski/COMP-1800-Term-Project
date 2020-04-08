@@ -1,26 +1,39 @@
 <header>
-<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-  <a class="navbar-brand" href="/">Remo</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-light navbar-toggler-icon">
+  <!-- NavBar with a transparent background -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
 
-    </span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/reminder">Reminders</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/reminder/new">Create</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="/refresh" tabindex="-1" aria-disabled="true">Refresh Reminders</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+    <!-- App Name (on-click it takes you to the landing page) -->
+    <a class="navbar-brand" href="/">Remo</a>
+
+    <!-- Collapsable NavBar!!! WooHOOOOOOO -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-light navbar-toggler-icon"></span>
+    </button>
+
+    <!-- NavBar Contents -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+
+        <!-- Home Button -->
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+
+        <!-- Reminder List -->
+        <li class="nav-item">
+          <a class="nav-link" href="/reminder">Reminders</a>
+        </li>
+
+        <!-- Create a Reminder -->
+        <li class="nav-item">
+          <a class="nav-link" href="/reminder/new">Create</a>
+        </li>
+
+        <!-- Fetch from Database -->
+        <li class="nav-item">
+          <a class="nav-link disabled" href="/refresh" tabindex="-1" aria-disabled="true">Refresh Reminders</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
