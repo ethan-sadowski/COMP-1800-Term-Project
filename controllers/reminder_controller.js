@@ -263,10 +263,10 @@ let remindersController = {
                   description: data[i][3],
                   rain: bool = data[i][4] == "true",
                   subtasks: [data[i][5], data[i][6], data[i][7], data[i][8]],
-                  completed: bool = data[i][9] == "true",
+                  completed: bool = data[i][9].toLowerCase() == "true",
                   tags: [data[i][10], data[i][11], data[i][12], data[i][13]]
                 }
-          
+          console.log(newReminder.completed)
           //Newly created tasks are then pushed to Database.cindy.reminders
           Database.cindy.reminders.push(newReminder);
               }
