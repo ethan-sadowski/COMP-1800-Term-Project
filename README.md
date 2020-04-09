@@ -53,6 +53,7 @@ Remo utilizes the following APIs:
 | --- | --- |
 | DarkSky Weather API | https://darksky.net/dev/docs |
 | HTML5 Geolocation API | https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API |
+| Google Sheets API | https://developers.google.com/sheets/api |
 
 ## Database:
 The external storage for the Remo application uses an integrated Google Sheet.
